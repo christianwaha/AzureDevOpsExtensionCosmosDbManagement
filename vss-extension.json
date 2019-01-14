@@ -1,0 +1,43 @@
+{
+  "manifestVersion": 1,
+  "id": "azure-cosmos-db-management",
+  "name": "Azure CosmosDB Management Tools for Azure DevOps",
+  "version": "0.0.<BUILDNUMBER>",
+  "publisher": "cwlabsconsultingservices",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "As long as it is not possible to create by ARM Template Cosmos DB Tables or Collection this will be helpfull.",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "icons": {
+    "default": "images/CosmosDB_ExtensionPicture.png"
+  },
+  "files": [
+    {
+      "path": "buildAndReleaseTask"
+    }
+  ],
+
+  "content": {
+    "details": {
+      "path": "overview.md"
+    }
+  },
+
+  "contributions": [
+    {
+      "id": "azure-cosmos-db-management",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "buildAndReleaseTask"
+      }
+    }
+  ]
+}
