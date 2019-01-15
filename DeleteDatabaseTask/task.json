@@ -157,7 +157,7 @@
 
   "execution": {
     "PowerShell3": {
-      "target": "AzureCleanupPowerShell.ps1"
+      "target": "AzureDeleteDatabase.ps1"
     }
   },
   "messages": {

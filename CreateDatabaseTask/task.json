@@ -1,8 +1,8 @@
 {
   "id": "eb442700-b18e-4ead-8327-691a16f4f6ce",
   "name": "clean-azureresourcegroup-deployments",
-  "friendlyName": "Clean Azure Resourcegroup deployment",
-  "description": "There is a limit of 800 deployments to an Azure Resourcegroup so it is recommended to clean it by every build or release.",
+  "friendlyName": "Create Cosmos DB Database",
+  "description": "Create an empty Cosmos DB / Document DB Database (SQL)",
   "helpMarkDown": "",
   "author": "cwlabsconsultingservices",
   "category": "Deploy",
@@ -157,7 +157,7 @@
 
   "execution": {
     "PowerShell3": {
-      "target": "AzureCleanupPowerShell.ps1"
+      "target": "AzureCreateDatabase.ps1"
     }
   },
   "messages": {

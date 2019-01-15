@@ -157,7 +157,7 @@
 
   "execution": {
     "PowerShell3": {
-      "target": "AzureCleanupPowerShell.ps1"
+      "target": "AzureCreateCollection.ps1"
     }
   },
   "messages": {
