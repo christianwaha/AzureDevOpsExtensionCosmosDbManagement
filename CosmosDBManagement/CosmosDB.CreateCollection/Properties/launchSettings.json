@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CosmosDB.CreateCollection": {
+      "commandName": "Project",
+      "commandLineArgs": "-EndPointUrl \"https://cwlabs-test1.documents.azure.com:443/\" -AuthorizationKey \"h0rlXtC2rGUG0mFQO2j9IBt2Gwoch5BCFMPEzxFsYIBufdGze1E9uipEOIPwNFcK4ZWw4OgndOZBkRVKlWDcdg==\" -DatabaseName \"CollectAndRedeem\" -CollectionName \"HelsanaPlus\""
+    }
+  }
+}
