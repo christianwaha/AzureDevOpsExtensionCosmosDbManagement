@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
-    <OutputPath>C:\Users\ChristianWaha\source\repos\AzureCosmosDbManagement\CosmosDBManagement\CosmosDB.Tools\</OutputPath>
+    <OutputPath>..\CosmosDB.Tools\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
