@@ -18,7 +18,16 @@
   },
   "files": [
     {
-      "path": "buildAndReleaseTask"
+      "path": "CreateDatabaseTask"
+    },
+    {
+      "path": "DeleteDatabaseTask"
+    },
+    {
+      "path": "CreateCollectionTask"
+    },
+    {
+      "path": "DeleteCollectionTask"
     }
   ],
 
@@ -30,13 +39,43 @@
 
   "contributions": [
     {
-      "id": "azure-cosmos-db-management",
+      "id": "azure-cosmos-db-management_CreateDatabase",
       "type": "ms.vss-distributed-task.task",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": "buildAndReleaseTask"
+        "name": "CreateDatabaseTask"
+      }
+    },
+    {
+      "id": "azure-cosmos-db-management_DeleteDatabase",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "DeleteDatabaseTask"
+      }
+    },
+    {
+      "id": "azure-cosmos-db-management_CreateCollection",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "CreateCollectionTask"
+      }
+    },
+    {
+      "id": "azure-cosmos-db-management_DeleteCollection",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "DeleteCollectionTask"
       }
     }
   ]

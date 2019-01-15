@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\CosmosDB.Tools\</OutputPath>
+    <OutputPath>..\..\DeleteDatabaseTask\ps_module\cosmostools</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
