@@ -1,5 +1,5 @@
 {
-  "id": "eb442700-b18e-4ead-8327-691a16f4f6ce",
+  "id": "0f6db3f8-2e89-4b09-afd2-585574c66af7",
   "name": "azure-cosmosdb-delete-database",
   "friendlyName": "Delete Cosmos DB Database",
   "description": "Task to delete an existing Cosmos DB Database",

@@ -1,5 +1,5 @@
 {
-  "id": "eb442700-b18e-4ead-8327-691a16f4f6ce",
+  "id": "7fbd2e33-b28f-40c8-b2d2-86d1c136e70d",
   "name": "azure-cosmosdb-create-collection",
   "friendlyName": "Create Cosmos DB Collection",
   "description": "Task to create a Collection in an existing Cosmos DB Database",

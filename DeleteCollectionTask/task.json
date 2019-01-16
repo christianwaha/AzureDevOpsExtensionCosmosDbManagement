@@ -1,5 +1,5 @@
 {
-  "id": "eb442700-b18e-4ead-8327-691a16f4f6ce",
+  "id": "c2de7922-f990-477b-8216-ad31503c7bb1",
   "name": "azure-cosmosdb-create-collection",
   "friendlyName": "Delete Cosmos DB Collection",
   "description": "Task to delete a Collection in an existing Cosmos DB Database",
