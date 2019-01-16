@@ -9,7 +9,8 @@
       "CosmosDB.CreateDatabase/1.0.0": {
         "dependencies": {
           "CosmosDB.ManagementLibrary": "1.0.0",
-          "Microsoft.Azure.DocumentDB": "2.2.1"
+          "Microsoft.Azure.DocumentDB": "2.2.1",
+          "Microsoft.Azure.DocumentDB.Core": "2.2.1"
         },
         "runtime": {
           "CosmosDB.CreateDatabase.dll": {}
