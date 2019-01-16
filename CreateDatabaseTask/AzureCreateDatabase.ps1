@@ -26,6 +26,7 @@ $scriptArguments = "-DatabaseName $databaseName -EndPointUrl $endPointUrl -Autho
 
 Get-ChildItem $PSScriptRoot
 Get-ChildItem $PSScriptRoot\ps_modules
+Get-ChildItem $PSScriptRoot\ps_modules\cosmostools
 
 &dotnet
 
