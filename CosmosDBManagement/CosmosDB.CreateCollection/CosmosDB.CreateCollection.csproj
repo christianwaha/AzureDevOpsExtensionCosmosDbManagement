@@ -10,6 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.DocumentDB" Version="2.2.1" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CosmosDB.ManagmentLibrary\CosmosDB.ManagementLibrary.csproj" />
   </ItemGroup>
 
