@@ -19,7 +19,7 @@
     "Minor": 0,
     "Patch": <BUILDNUMBER>
   },
-  "releaseNotes": "Initial Commit",
+  "releaseNotes": "Update form",
   "demands": [
     "azureps"
   ],
@@ -27,7 +27,7 @@
   "showEnvironmentVariables": true,
   "groups": [
     {
-      "name": "AzureDetails",
+      "name": "Datenbankdetails",
       "displayName": "Azure Details",
       "isExpanded": true
     },
@@ -126,14 +126,9 @@
     }
   ],
   "dataSourceBindings": [
-    {
-      "target": "resourceGroupName",
-      "endpointId": "$(ConnectedServiceName)",
-      "dataSourceName": "AzureResourceGroups"
-    }
   ],
 
-  "instanceNameFormat": "Azure Resourcegroup deployments cleanup",
+  "instanceNameFormat": "Delete Cosmos DB Collection",
 
   "execution": {
     "PowerShell3": {
