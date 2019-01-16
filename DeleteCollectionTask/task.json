@@ -32,8 +32,8 @@
       "isExpanded": true
     },
     {
-      "name": "Datenbankdetails",
-      "displayName": "Azure Details",
+      "name": "Databasedetails",
+      "displayName": "Database Details",
       "isExpanded": true
     },
     {
@@ -59,7 +59,7 @@
       "name": "endPointUrl",
       "type": "string",
       "label": "Endpoint URL",
-      "groupName": "Datenbankdetails",
+      "groupName": "Databasedetails",
             "required": true,
       "defaultValue": "",
       "helpMarkDown": "You can find the Endpoint URL in your Cosmos DB Account settings"
@@ -68,7 +68,7 @@
       "name": "authorizationKey",
       "type": "string",
       "label": "Authorization Key",
-      "groupName": "Datenbankdetails",
+      "groupName": "Databasedetails",
       "required": true,
       "defaultValue": "",
       "helpMarkDown": "You can find the Autorization Key in your Cosmos DB Account settings"
@@ -76,8 +76,8 @@
     {
       "name": "databaseName",
       "type": "string",
-      "label": "Datenbank Name",
-      "groupName": "Datenbankdetails",
+      "label": "Database Name",
+      "groupName": "Databasedetails",
       "required": true,
       "defaultValue": "",
       "helpMarkDown": "Name of the database where the collection should be deleted."
@@ -86,7 +86,7 @@
       "name": "collectionName",
       "type": "string",
       "label": "Collection Name",
-      "groupName": "Datenbankdetails",
+      "groupName": "Databasedetails",
       "required": true,
       "defaultValue": "",
       "helpMarkDown": "Name of the collection which should be deleted."
