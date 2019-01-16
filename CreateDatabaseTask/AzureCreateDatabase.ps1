@@ -25,6 +25,9 @@ $script = "dotnet $PSScriptRoot\ps_modules\cosmostools\CosmosDB.CreateDatabase.d
 $scriptArguments = "-DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
 
 Get-ChildItem $PSScriptRoot
+Get-ChildItem $PSScriptRoot\ps_modules
+
+&dotnet
 
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {
