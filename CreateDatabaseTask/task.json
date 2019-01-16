@@ -1,8 +1,8 @@
 {
   "id": "eb442700-b18e-4ead-8327-691a16f4f6ce",
-  "name": "clean-azureresourcegroup-deployments",
+  "name": "azure-cosmosdb-create-database",
   "friendlyName": "Create Cosmos DB Database",
-  "description": "Create an empty Cosmos DB / Document DB Database (SQL)",
+  "description": "Task to create a Cosmos DB Database",
   "helpMarkDown": "",
   "author": "cwlabsconsultingservices",
   "category": "Deploy",
@@ -19,7 +19,7 @@
     "Minor": 0,
     "Patch": <BUILDNUMBER>
   },
-  "releaseNotes": "Bug Fix for days to life",
+  "releaseNotes": "Initial Commit",
   "demands": [
     "azureps"
   ],
@@ -39,60 +39,31 @@
   ],
   "inputs": [
     {
-      "name": "ConnectedServiceName",
-      "aliases": [
-        "azureSubscription"
-      ],
-      "type": "connectedService:AzureRM",
-      "label": "Azure subscription",
+      "name": "endPointUrl",
+      "type": "string",
+      "label": "Endpoint URL",
+      "groupName": "Datenbankdetails",
+            "required": true,
       "defaultValue": "",
-      "required": true,
-      "groupName": "AzureDetails",
-      "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment."
+      "helpMarkDown": "You can find the Endpoint URL in your Cosmos DB Account settings"
     },
     {
-      "name": "resourceGroupName",
-      "type": "pickList",
-      "label": "Resource group",
-      "required": true,
-      "groupName": "AzureDetails",
-      "helpMarkDown": "Provide the name of a resource group.",
-      "properties": {
-        "EditableOptions": "True"
-      }
-    },
-    {
-      "name": "targetType",
-      "type": "radio",
-      "label": "Retention",
-      "required": false,
-      "groupName": "AzureDetails",
-      "defaultValue": "days",
-      "helpMarkDown": "Time to keep or amount to keep",
-      "options": {
-        "days": "Days to keep",
-        "amount": "Max items to keep"
-      }
-    },
-    {
-      "name": "daysKeep",
+      "name": "authorizationKey",
       "type": "string",
-      "label": "Days to keep",
-      "groupName": "AzureDetails",
-      "visibleRule": "targetType = days",
+      "label": "Authorization Key",
+      "groupName": "Datenbankdetails",
       "required": true,
-      "defaultValue": 7,
-      "helpMarkDown": "Oldest ARM Deployment to keep."
+      "defaultValue": "",
+      "helpMarkDown": "You can find the Autorization Key in your Cosmos DB Account settings"
     },
     {
-      "name": "amountKeep",
+      "name": "databaseName",
       "type": "string",
-      "label": "Deployments to keep",
-      "groupName": "AzureDetails",
-      "visibleRule": "targetType = amount",
+      "label": "Datenbank Name",
+      "groupName": "Datenbankdetails",
       "required": true,
-      "defaultValue": 100,
-      "helpMarkDown": "How many ARM deployments should be kept. Only the newest will be kept"
+      "defaultValue": "",
+      "helpMarkDown": "Name of the database which should be created."
     },
     {
       "name": "errorActionPreference",
