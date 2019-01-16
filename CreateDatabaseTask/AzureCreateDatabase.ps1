@@ -28,7 +28,7 @@ Get-ChildItem $PSScriptRoot
 Get-ChildItem $PSScriptRoot\ps_modules
 Get-ChildItem $PSScriptRoot\ps_modules\cosmostools
 
-&dotnet
+&dotnet --info
 
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {
