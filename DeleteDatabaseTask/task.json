@@ -27,6 +27,11 @@
   "showEnvironmentVariables": true,
   "groups": [
     {
+      "name": "AzureDetails",
+      "displayName": "Azure Details",
+      "isExpanded": true
+    },
+    {
       "name": "Datenbankdetails",
       "displayName": "Azure Details",
       "isExpanded": true
@@ -39,11 +44,23 @@
   ],
   "inputs": [
     {
+      "name": "ConnectedServiceName",
+      "aliases": [
+        "azureSubscription"
+      ],
+      "type": "connectedService:AzureRM",
+      "label": "Azure subscription",
+      "defaultValue": "",
+      "required": true,
+      "groupName": "AzureDetails",
+      "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment."
+    },
+    {
       "name": "endPointUrl",
       "type": "string",
       "label": "Endpoint URL",
       "groupName": "Datenbankdetails",
-            "required": true,
+      "required": true,
       "defaultValue": "",
       "helpMarkDown": "You can find the Endpoint URL in your Cosmos DB Account settings"
     },

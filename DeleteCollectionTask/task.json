@@ -25,7 +25,12 @@
   ],
   "minimumAgentVersion": "2.115.0",
   "showEnvironmentVariables": true,
-  "groups": [
+  "groups": [    
+    {
+      "name": "AzureDetails",
+      "displayName": "Azure Details",
+      "isExpanded": true
+    },
     {
       "name": "Datenbankdetails",
       "displayName": "Azure Details",
@@ -38,6 +43,18 @@
     }
   ],
   "inputs": [
+    {
+      "name": "ConnectedServiceName",
+      "aliases": [
+        "azureSubscription"
+      ],
+      "type": "connectedService:AzureRM",
+      "label": "Azure subscription",
+      "defaultValue": "",
+      "required": true,
+      "groupName": "AzureDetails",
+      "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment."
+    },
     {
       "name": "endPointUrl",
       "type": "string",
