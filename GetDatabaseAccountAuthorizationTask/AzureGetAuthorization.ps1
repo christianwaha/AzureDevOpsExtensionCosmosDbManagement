@@ -20,11 +20,6 @@ $customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 
 # break invoking the script via Invoke-Expression.
 
-$script = "Invoke-AzureRmResourceAction"
-$scriptArguments = "-Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -ResourceName $databaseName"
-
-
-
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {
         throw (Get-VstsLocString -Key InvalidAzurePsVersion $customTargetAzurePs)
@@ -76,7 +71,7 @@ try {
     # Trace the expression as it will be invoked.
 
 	
-    $scriptCommand = "& '$($script.Replace("'", "''"))' $scriptArguments"
+    #$scriptCommand = "& '$($script.Replace("'", "''"))' $scriptArguments"
 
 
     # Remove all commands imported from VstsTaskSdk, other than Out-Default.
@@ -120,6 +115,8 @@ try {
 
     #    the error action preference.
 
+    $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -ResourceName $databaseName
+ 
     ([scriptblock]::Create($scriptCommand)) | 
 
         ForEach-Object {
@@ -160,8 +157,11 @@ try {
         }
         if(-not [string]::IsNullOrEmpty($outputCosmosDbAccessKey))
         {
-            $masterAccessKey = "Nochnix drin"
-            Write-Host "##vso[task.setvariable variable=$outputCosmosDbAccessKey;]$masterAccessKey"
+            if(-not [string]::IsNull($keys))
+            {
+                $masterAccessKey = $keys.primaryMasterKey
+                Write-Host "##vso[task.setvariable variable=$outputCosmosDbAccessKey;]$masterAccessKey"
+            }
         }
 
 }
