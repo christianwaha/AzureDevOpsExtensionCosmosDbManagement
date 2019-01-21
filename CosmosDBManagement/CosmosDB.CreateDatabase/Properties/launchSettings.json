@@ -2,7 +2,7 @@
   "profiles": {
     "CosmosDB.CreateDatabase": {
       "commandName": "Project",
-      "commandLineArgs": ""
+      "commandLineArgs": "-DatabaseName CollectAndRedeem -EndPointUrl https://helehplucosmosbasicent01.documents.azure.com:443/ -AuthorizationKey Cv9nyPs2H20LB4HSai1gQjSDxqPoQiAygCt61q87zRkG4v9O848j4SuUNLrlOTYSA2PuaPRxwOyDfjpiBv7ITg== -Y"
     }
   }
 }

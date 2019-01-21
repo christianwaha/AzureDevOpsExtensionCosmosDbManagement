@@ -19,11 +19,13 @@ namespace CosmosDBManagement
             {
                 Exception baseException = de.GetBaseException();
                 Console.WriteLine("{0} error occurred: {1}, Message: {2}", de.StatusCode, de.Message, baseException.Message);
+                Environment.ExitCode = de.HResult;
             }
             catch (Exception e)
             {
                 Exception baseException = e.GetBaseException();
                 Console.WriteLine("Error: {0}, Message: {1}", e.Message, baseException.Message);
+                Environment.ExitCode = e.HResult;
             }
             finally
             {

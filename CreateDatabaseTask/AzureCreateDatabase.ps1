@@ -24,11 +24,6 @@ $customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 $script = "dotnet"
 $scriptArguments = "$PSScriptRoot\ps_modules\CosmosDB.CreateDatabase\CosmosDB.CreateDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
 
-Get-ChildItem $PSScriptRoot
-Get-ChildItem $PSScriptRoot\ps_modules
-
-&dotnet --info
-
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {
         throw (Get-VstsLocString -Key InvalidAzurePsVersion $customTargetAzurePs)
