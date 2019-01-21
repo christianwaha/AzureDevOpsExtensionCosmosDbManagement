@@ -1,7 +1,8 @@
 Trace-VstsEnteringInvocation $MyInvocation
 Import-VstsLocStrings "$PSScriptRoot\Task.json"
 
-$latestVersion = 
+
+$latestVersion = "LatestVersion"
 
 # Get inputs.
 
@@ -12,13 +13,17 @@ $outputCosmosDbAccessKey = Get-VstsInput -Name outputCosmosDbAccessKey
 
 $__vsts_input_errorActionPreference = "stop"
 $__vsts_input_failOnStandardError = $true
-$targetAzurePs = "LatestVersion"
-#$customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
+$targetAzurePs = $latestVersion
+$customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
+
 # Validate the script path and args do not contains new-lines. Otherwise, it will
+
 # break invoking the script via Invoke-Expression.
 
 $script = "Invoke-AzureRmResource"
 $scriptArguments = "-Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -Name $databaseName"
+
+
 
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {
