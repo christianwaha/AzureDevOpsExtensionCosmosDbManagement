@@ -22,12 +22,10 @@ $customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 # break invoking the script via Invoke-Expression.
 
 $script = "dotnet"
-$scriptArguments = "$PSScriptRoot\ps_modules\cosmostools\CosmosDB.CreateDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
+$scriptArguments = "$PSScriptRoot\ps_modules\CosmosDB.CreateDatabase\CosmosDB.CreateDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
 
 Get-ChildItem $PSScriptRoot
 Get-ChildItem $PSScriptRoot\ps_modules
-Get-ChildItem $PSScriptRoot\ps_modules\cosmostools
-Get-ChildItem $PSScriptRoot\ps_modules\cosmostools\netcoreapp2.1
 
 &dotnet --info
 

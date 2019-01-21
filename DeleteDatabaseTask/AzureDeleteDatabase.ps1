@@ -21,7 +21,7 @@ $customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 # break invoking the script via Invoke-Expression.
 
 $script = "dotnet"
-$scriptArguments = "$PSScriptRoot\ps_modules\cosmostools\CosmosDB.DeleteDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
+$scriptArguments = "$PSScriptRoot\ps_modules\CosmosDB.DeleteDatabase\CosmosDB.DeleteDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
 
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {
