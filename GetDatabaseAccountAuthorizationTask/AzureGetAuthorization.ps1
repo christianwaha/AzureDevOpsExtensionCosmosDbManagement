@@ -1,45 +1,40 @@
 Trace-VstsEnteringInvocation $MyInvocation
 Import-VstsLocStrings "$PSScriptRoot\Task.json"
 
-# string constants
-$otherVersion = "OtherVersion"
-$latestVersion = "LatestVersion"
+$latestVersion = 
 
 # Get inputs.
 
 $databaseName = Get-VstsInput -Name databaseName
 $resourcegroupName = Get-VstsInput -Name resourcegroupName
-$authorizationKey = Get-VstsInput -Name authorizationKey
+$outputCosmosDbUri = Get-VstsInput -Name outputCosmosDbUri
+$outputCosmosDbAccessKey = Get-VstsInput -Name outputCosmosDbAccessKey
 
-$__vsts_input_errorActionPreference = Get-VstsInput -Name errorActionPreference
-$__vsts_input_failOnStandardError = Get-VstsInput -Name FailOnStandardError
-$targetAzurePs = $latestVersion
-$customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
-
+$__vsts_input_errorActionPreference = "stop"
+$__vsts_input_failOnStandardError = $true
+$targetAzurePs = "LatestVersion"
+#$customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 # Validate the script path and args do not contains new-lines. Otherwise, it will
-
 # break invoking the script via Invoke-Expression.
 
-$script = "Invoke-AzureRmResourceAction"
-$scriptArguments = "-ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -Name $databaseName"
+$script = "Invoke-AzureRmResource"
+$scriptArguments = "-Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -Name $databaseName"
 
-$endpointuri = "https://$databasename.documents.azure.com:443/"
-
-if ($targetAzurePs -eq $otherVersion) {
-    if ($customTargetAzurePs -eq $null) {
-        throw (Get-VstsLocString -Key InvalidAzurePsVersion $customTargetAzurePs)
-    } else {
-        $targetAzurePs = $customTargetAzurePs.Trim()        
-    }
-}
-$pattern = "^[0-9]+\.[0-9]+\.[0-9]+$"
-$regex = New-Object -TypeName System.Text.RegularExpressions.Regex -ArgumentList $pattern
-
-if ($targetAzurePs -eq $latestVersion) {
-    $targetAzurePs = ""
-} elseif (-not($regex.IsMatch($targetAzurePs))) {
-    throw (Get-VstsLocString -Key InvalidAzurePsVersion -ArgumentList $targetAzurePs)
-}
+#if ($targetAzurePs -eq $otherVersion) {
+#    if ($customTargetAzurePs -eq $null) {
+#        throw (Get-VstsLocString -Key InvalidAzurePsVersion $customTargetAzurePs)
+#    } else {
+#        $targetAzurePs = $customTargetAzurePs.Trim()        
+#    }
+#}
+#$pattern = "^[0-9]+\.[0-9]+\.[0-9]+$"
+#$regex = New-Object -TypeName System.Text.RegularExpressions.Regex -ArgumentList $pattern
+#
+#if ($targetAzurePs -eq $latestVersion) {
+#    $targetAzurePs = ""
+#} elseif (-not($regex.IsMatch($targetAzurePs))) {
+#    throw (Get-VstsLocString -Key InvalidAzurePsVersion -ArgumentList $targetAzurePs)
+#}
 . "$PSScriptRoot\Utility.ps1"
 
 $targetAzurePs = Get-RollForwardVersion -azurePowerShellVersion $targetAzurePs
@@ -152,6 +147,18 @@ try {
                 ,$_
             }
         }
+
+        if(-not [string]::IsNullOrEmpty($outputCosmosDbUri))
+        {
+            $endpointuri = "https://$databasename.documents.azure.com:443/"
+            Write-Host "##vso[task.setvariable variable=$outputCosmosDbUri;]$endpointuri"
+        }
+        if(-not [string]::IsNullOrEmpty($outputCosmosDbAccessKey))
+        {
+            $masterAccessKey = "Nochnix drin"
+            Write-Host "##vso[task.setvariable variable=$outputCosmosDbAccessKey;]$masterAccessKey"
+        }
+
 }
 
 finally {

@@ -40,9 +40,32 @@
       "name": "advanced",
       "displayName": "Advanced",
       "isExpanded": false
+    },
+    {
+      "name": "output",
+      "displayName": "Output",
+      "isExpanded": true
     }
   ],
   "inputs": [
+    {
+      "name": "outputCosmosDbUri",
+      "type": "string",
+      "label": "CosmosDB EndpointURI",
+      "required": false,
+      "defaultValue": "",
+      "groupName": "output",
+      "helpMarkDown": "Uri to access your CosmosDB account."
+    },
+    {
+      "name": "outputCosmosDbAccessKey",
+      "type": "string",
+      "label": "CosmosDB AccessKey",
+      "required": false,
+      "defaultValue": "",
+      "groupName": "output",
+      "helpMarkDown": "AccessKey to access your CosmosDB account."
+    },
     {
       "name": "ConnectedServiceName",
       "aliases": [
@@ -101,20 +124,7 @@
       "dataSourceName": "AzureResourceGroups"
     }
   ],
-
   "instanceNameFormat": "Get CosmosDB Account Authorization",
-  "OutputVariables": [
-    {
-      "name": "cosmosDbUri",
-      "label": "CosmosDB EndpointURI",
-      "description": "Uri to access your CosmosDB account"
-    },
-    {
-      "name": "cosmosDbAccessKey",
-      "label": "CosmosDB AccessKey",
-      "description": "AccessKey to access your CosmosDB account"
-    }
-  ],
   "execution": {
     "PowerShell3": {
       "target": "AzureGetAuthorization.ps1"
