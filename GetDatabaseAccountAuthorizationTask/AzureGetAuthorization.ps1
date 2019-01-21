@@ -20,21 +20,21 @@ $targetAzurePs = "LatestVersion"
 $script = "Invoke-AzureRmResource"
 $scriptArguments = "-Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -Name $databaseName"
 
-#if ($targetAzurePs -eq $otherVersion) {
-#    if ($customTargetAzurePs -eq $null) {
-#        throw (Get-VstsLocString -Key InvalidAzurePsVersion $customTargetAzurePs)
-#    } else {
-#        $targetAzurePs = $customTargetAzurePs.Trim()        
-#    }
-#}
-#$pattern = "^[0-9]+\.[0-9]+\.[0-9]+$"
-#$regex = New-Object -TypeName System.Text.RegularExpressions.Regex -ArgumentList $pattern
-#
-#if ($targetAzurePs -eq $latestVersion) {
-#    $targetAzurePs = ""
-#} elseif (-not($regex.IsMatch($targetAzurePs))) {
-#    throw (Get-VstsLocString -Key InvalidAzurePsVersion -ArgumentList $targetAzurePs)
-#}
+if ($targetAzurePs -eq $otherVersion) {
+    if ($customTargetAzurePs -eq $null) {
+        throw (Get-VstsLocString -Key InvalidAzurePsVersion $customTargetAzurePs)
+    } else {
+        $targetAzurePs = $customTargetAzurePs.Trim()        
+    }
+}
+$pattern = "^[0-9]+\.[0-9]+\.[0-9]+$"
+$regex = New-Object -TypeName System.Text.RegularExpressions.Regex -ArgumentList $pattern
+
+if ($targetAzurePs -eq $latestVersion) {
+    $targetAzurePs = ""
+} elseif (-not($regex.IsMatch($targetAzurePs))) {
+    throw (Get-VstsLocString -Key InvalidAzurePsVersion -ArgumentList $targetAzurePs)
+}
 . "$PSScriptRoot\Utility.ps1"
 
 $targetAzurePs = Get-RollForwardVersion -azurePowerShellVersion $targetAzurePs
