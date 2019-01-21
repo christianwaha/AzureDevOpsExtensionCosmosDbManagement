@@ -6,7 +6,7 @@ $latestVersion = "LatestVersion"
 
 # Get inputs.
 
-$databaseName = Get-VstsInput -Name databaseName
+$databaseName = Get-VstsInput -Name cosmosDbAccountName
 $resourcegroupName = Get-VstsInput -Name resourcegroupName
 $outputCosmosDbUri = Get-VstsInput -Name outputCosmosDbUri
 $outputCosmosDbAccessKey = Get-VstsInput -Name outputCosmosDbAccessKey
