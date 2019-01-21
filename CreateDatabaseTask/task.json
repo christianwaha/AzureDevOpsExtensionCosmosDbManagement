@@ -17,13 +17,13 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": <BUILDNUMBER>
+    "Patch": "<BUILDNUMBER>"
   },
   "releaseNotes": "Update form",
   "demands": [
     "azureps"
   ],
-  "minimumAgentVersion": "2.115.0",
+  "minimumAgentVersion": "2.119.1",
   "showEnvironmentVariables": true,
   "groups": [
     {
@@ -60,7 +60,7 @@
       "type": "string",
       "label": "Endpoint URL",
       "groupName": "Databasedetails",
-            "required": true,
+      "required": true,
       "defaultValue": "",
       "helpMarkDown": "You can find the Endpoint URL in your Cosmos DB Account settings"
     },
