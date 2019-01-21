@@ -79,7 +79,8 @@
       ],
       "properties": {
         "name": "DeleteCollectionTask"
-      },
+      }
+    },
       {
         "id": "azure-cosmos-db-management_GetAuthorization",
         "type": "ms.vss-distributed-task.task",
