@@ -8,7 +8,7 @@ $latestVersion = "LatestVersion"
 # Get inputs.
 
 $databaseName = Get-VstsInput -Name databaseName
-$endPointUrl = Get-VstsInput -Name endPointUrl
+$resourcegroupName = Get-VstsInput -Name resourcegroupName
 $authorizationKey = Get-VstsInput -Name authorizationKey
 
 $__vsts_input_errorActionPreference = Get-VstsInput -Name errorActionPreference
@@ -20,8 +20,10 @@ $customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 
 # break invoking the script via Invoke-Expression.
 
-$script = "dotnet"
-$scriptArguments = "$PSScriptRoot\ps_modules\CosmosDB.DeleteDatabase\CosmosDB.DeleteDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
+$script = "Invoke-AzureRmResourceAction"
+$scriptArguments = "-ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -Name $databaseName"
+
+$endpointuri = "https://$databasename.documents.azure.com:443/"
 
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {
