@@ -103,24 +103,15 @@
   ],
 
   "instanceNameFormat": "Get CosmosDB Account Authorization",
-  "outputs": [
+  "OutputVariables": [
     {
-      "name": "cosmosDbUrl",
-      "type": "string",
-      "label": "CosmosDB Endpoint Url",
-      "required": false,
-      "defaultValue": "",
-      "helpMarkDown": "Url to access your CosmosDB account"
+      "name": "cosmosDbUri",
+      "description": "Uri to access your CosmosDB account"
     },
     {
       "name": "cosmosDbAccessKey",
-      "type": "string",
-      "label": "CosmosDB AccessKey",
-      "required": false,
-      "defaultValue": "",
-      "helpMarkDown": "AccessKey to access your CosmosDB account"
+      "description": "AccessKey to access your CosmosDB account"
     }
-
   ],
   "execution": {
     "PowerShell3": {
