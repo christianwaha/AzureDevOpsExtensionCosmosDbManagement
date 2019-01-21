@@ -21,7 +21,7 @@ $customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 # break invoking the script via Invoke-Expression.
 
 $script = "Invoke-AzureRmResourceAction"
-$scriptArguments = "-Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -Name $databaseName"
+$scriptArguments = "-Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -ResourceName $databaseName"
 
 
 
