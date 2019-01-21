@@ -27,6 +27,7 @@ $scriptArguments = "$PSScriptRoot\ps_modules\cosmostools\CosmosDB.CreateDatabase
 Get-ChildItem $PSScriptRoot
 Get-ChildItem $PSScriptRoot\ps_modules
 Get-ChildItem $PSScriptRoot\ps_modules\cosmostools
+Get-ChildItem $PSScriptRoot\ps_modules\cosmostools\netcoreapp2.1
 
 &dotnet --info
 
