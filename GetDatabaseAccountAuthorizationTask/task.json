@@ -1,5 +1,5 @@
 {
-  "id": "0f6db3f8-2e89-4b09-afd2-585574c66af7",
+  "id": "8bd6f6e7-a89c-4304-9217-85a011c7024b",
   "name": "azure-cosmos-db-management_GetAuthorization",
   "friendlyName": "Get Authorization from Cosmos DB Account",
   "description": "Task to collect the authorization of a Cosmos DB Account",
@@ -17,7 +17,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": <BUILDNUMBER>
+    "Patch": "<BUILDNUMBER>"
   },
   "releaseNotes": "Update form",
   "demands": [
