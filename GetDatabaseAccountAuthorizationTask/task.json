@@ -106,10 +106,12 @@
   "OutputVariables": [
     {
       "name": "cosmosDbUri",
+      "label": "CosmosDB EndpointURI",
       "description": "Uri to access your CosmosDB account"
     },
     {
       "name": "cosmosDbAccessKey",
+      "label": "CosmosDB AccessKey",
       "description": "AccessKey to access your CosmosDB account"
     }
   ],
