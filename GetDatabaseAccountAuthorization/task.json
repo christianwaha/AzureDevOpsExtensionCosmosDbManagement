@@ -1,0 +1,136 @@
+{
+  "id": "0f6db3f8-2e89-4b09-afd2-585574c66af7",
+  "name": "azure-cosmos-db-management_GetAuthorization",
+  "friendlyName": "Get Authorization from Cosmos DB Account",
+  "description": "Task to collect the authorization of a Cosmos DB Account",
+  "helpMarkDown": "",
+  "author": "cwlabsconsultingservices",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent",
+    "DeploymentGroup"
+  ],
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": <BUILDNUMBER>
+  },
+  "releaseNotes": "Update form",
+  "demands": [
+    "azureps"
+  ],
+  "minimumAgentVersion": "2.115.0",
+  "showEnvironmentVariables": true,
+  "groups": [
+    {
+      "name": "AzureDetails",
+      "displayName": "Azure Details",
+      "isExpanded": true
+    },
+    {
+      "name": "Databasedetails",
+      "displayName": "Database Details",
+      "isExpanded": true
+    },
+    {
+      "name": "advanced",
+      "displayName": "Advanced",
+      "isExpanded": false
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ConnectedServiceName",
+      "aliases": [
+        "azureSubscription"
+      ],
+      "type": "connectedService:AzureRM",
+      "label": "Azure subscription",
+      "defaultValue": "",
+      "required": true,
+      "groupName": "AzureDetails",
+      "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment."
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "pickList",
+      "label": "Resource group",
+      "required": true,
+      "groupName": "AzureDetails",
+      "helpMarkDown": "Provide the name of a resource group.",
+      "properties": {
+        "EditableOptions": "True"
+      }
+    },
+    {
+      "name": "cosmosDbAccountName",
+      "type": "string",
+      "label": "CosmosDB Account Name",
+      "groupName": "Databasedetails",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": "Name of your CosmosDB Account"
+    },
+    {
+      "name": "pwsh",
+      "type": "boolean",
+      "label": "Use PowerShell Core",
+      "required": false,
+      "defaultValue": "false",
+      "helpMarkDown": "If this is true, then on Windows the task will use pwsh.exe from your PATH instead of powershell.exe.",
+      "groupName": "advanced"
+    },
+    {
+      "name": "workingDirectory",
+      "type": "filePath",
+      "label": "Working Directory",
+      "required": false,
+      "defaultValue": "",
+      "helpMarkDown": "Working directory where the script is run.",
+      "groupName": "advanced"
+    }
+  ],
+  "dataSourceBindings": [
+    {
+      "target": "resourceGroupName",
+      "endpointId": "$(ConnectedServiceName)",
+      "dataSourceName": "AzureResourceGroups"
+    }
+  ],
+
+  "instanceNameFormat": "Get CosmosDB Account Authorization",
+  "outputs": [
+    {
+      "name": "cosmosDbUrl",
+      "type": "string",
+      "label": "CosmosDB Endpoint Url",
+      "required": false,
+      "defaultValue": "",
+      "helpMarkDown": "Url to access your CosmosDB account"
+    },
+    {
+      "name": "cosmosDbAccessKey",
+      "type": "string",
+      "label": "CosmosDB AccessKey",
+      "required": false,
+      "defaultValue": "",
+      "helpMarkDown": "AccessKey to access your CosmosDB account"
+    }
+
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "AzureGetAuthorization.ps1"
+    }
+  },
+  "messages": {
+    "InvalidScriptArguments0": "Invalid script arguments '{0}'. Line breaks are not allowed.",
+    "InvalidScriptPath0": "Invalid script path '{0}'. Invalid path characters specified.",
+    "InvalidAzurePsVersion": "The Azure PowerShell version '{0}' specified is not in the correct format. Please check the format. An example of correct format is 1.0.1",
+    "OverrideAzurePowerShellVersion": "The Azure PowerShell version '{0}' is not supported for Hosted Agent. Overriding it with version '{1}'. Consider changing the version selected."
+  }
+}

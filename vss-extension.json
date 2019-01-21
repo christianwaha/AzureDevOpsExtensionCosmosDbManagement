@@ -28,6 +28,9 @@
     },
     {
       "path": "DeleteCollectionTask"
+    },    
+    {
+      "path": "GetDatabaseAccountAuthorizationTask"
     }
   ],
 
@@ -76,7 +79,16 @@
       ],
       "properties": {
         "name": "DeleteCollectionTask"
-      }
+      },
+      {
+        "id": "azure-cosmos-db-management_GetAuthorization",
+        "type": "ms.vss-distributed-task.task",
+        "targets": [
+          "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+          "name": "GetDatabaseAccountAuthorizationTask"
+        }
     }
   ]
 }
