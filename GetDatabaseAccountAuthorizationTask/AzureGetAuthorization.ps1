@@ -117,38 +117,37 @@ try {
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -ResourceName $databaseName
  
-    ([scriptblock]::Create($scriptCommand)) | 
+    #([scriptblock]::Create($scriptCommand)) | 
+    #    ForEach-Object {
+    #        Remove-Variable -Name scriptCommand
+    #        Write-Host "##[command]$_"
+    #        . $_ 2>&1
+    #    } | 
 
-        ForEach-Object {
-            Remove-Variable -Name scriptCommand
-            Write-Host "##[command]$_"
-            . $_ 2>&1
-        } | 
-
-        ForEach-Object {
-            if($_ -is [System.Management.Automation.ErrorRecord]) {
-                if($_.FullyQualifiedErrorId -eq "NativeCommandError" -or $_.FullyQualifiedErrorId -eq "NativeCommandErrorMessage") {
-                    ,$_
-                    if($__vsts_input_failOnStandardError -eq $true) {
-                        "##vso[task.complete result=Failed]"
-                    }
-                }
-                else {
-                    if($__vsts_input_errorActionPreference -eq "continue") {
-                        ,$_
-                        if($__vsts_input_failOnStandardError -eq $true) {
-                            "##vso[task.complete result=Failed]"
-                        }
-                    }
-                    elseif($__vsts_input_errorActionPreference -eq "stop") {
-                        throw $_
-                    }
-                }
-            } else {
-
-                ,$_
-            }
-        }
+    #    ForEach-Object {
+    #       if($_ -is [System.Management.Automation.ErrorRecord]) {
+    #            if($_.FullyQualifiedErrorId -eq "NativeCommandError" -or $_.FullyQualifiedErrorId -eq "NativeCommandErrorMessage") {
+    #               ,$_
+    #                if($__vsts_input_failOnStandardError -eq $true) {
+    #                    "##vso[task.complete result=Failed]"
+    #                }
+    #            }
+    #            else {
+    #                if($__vsts_input_errorActionPreference -eq "continue") {
+    #                    ,$_
+    #                    if($__vsts_input_failOnStandardError -eq $true) {
+    #                        "##vso[task.complete result=Failed]"
+    #                    }
+    #                }
+    #                elseif($__vsts_input_errorActionPreference -eq "stop") {
+    #                    throw $_
+    #                }
+    #            }
+    #        } else {
+    #
+    #            ,$_
+    #        }
+    #    }
 
         if(-not [string]::IsNullOrEmpty($outputCosmosDbUri))
         {
@@ -164,7 +163,7 @@ try {
             }
         }
 
-}
+    }
 
 finally {
 
