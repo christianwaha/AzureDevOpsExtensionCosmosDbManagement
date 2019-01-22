@@ -156,7 +156,7 @@ try {
         }
         if(-not [string]::IsNullOrEmpty($outputCosmosDbAccessKey))
         {
-            if(-not [string]::IsNull($keys))
+            if(-not [string]::IsNullOrEmpty($keys))
             {
                 $masterAccessKey = $keys.primaryMasterKey
                 Write-Host "##vso[task.setvariable variable=$outputCosmosDbAccessKey;]$masterAccessKey"
