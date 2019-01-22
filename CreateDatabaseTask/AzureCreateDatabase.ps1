@@ -9,7 +9,10 @@ $latestVersion = "LatestVersion"
 
 $databaseName = Get-VstsInput -Name databaseName
 $endPointUrl = Get-VstsInput -Name endPointUrl
-$authorizationKey = ConvertTo-SecureString -String (Get-VstsInput -Name authorizationKey)
+$authorizationKey = Get-VstsInput -Name authorizationKey
+
+$secureAuthorizationKey = ConvertTo-SecureString -String $authorizationKey
+
 
 
 $__vsts_input_errorActionPreference = Get-VstsInput -Name errorActionPreference
@@ -22,7 +25,7 @@ $customTargetAzurePs = Get-VstsInput -Name CustomTargetAzurePs
 # break invoking the script via Invoke-Expression.
 
 $script = "dotnet"
-$scriptArguments = "$PSScriptRoot\ps_modules\CosmosDB.CreateDatabase\CosmosDB.CreateDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $authorizationKey -Y"
+$scriptArguments = "$PSScriptRoot\ps_modules\CosmosDB.CreateDatabase\CosmosDB.CreateDatabase.dll -DatabaseName $databaseName -EndPointUrl $endPointUrl -AuthorizationKey $secureAuthorizationKey -Y"
 
 if ($targetAzurePs -eq $otherVersion) {
     if ($customTargetAzurePs -eq $null) {

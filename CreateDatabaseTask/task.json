@@ -66,7 +66,7 @@
     },
     {
       "name": "authorizationKey",
-      "type": "securestring",
+      "type": "string",
       "label": "Authorization Key",
       "groupName": "Databasedetails",
       "required": true,
