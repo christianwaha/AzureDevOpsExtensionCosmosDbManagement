@@ -9,7 +9,7 @@ $latestVersion = "LatestVersion"
 
 $databaseName = Get-VstsInput -Name databaseName
 $endPointUrl = Get-VstsInput -Name endPointUrl
-$authorizationKey = ConvertTo-SecureString -String (Get-VstsInput -Name authorizationKey)
+$authorizationKey = Get-VstsInput -Name authorizationKey
 
 $__vsts_input_errorActionPreference = Get-VstsInput -Name errorActionPreference
 $__vsts_input_failOnStandardError = Get-VstsInput -Name FailOnStandardError
