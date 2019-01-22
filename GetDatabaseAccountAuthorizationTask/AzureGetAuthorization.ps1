@@ -115,7 +115,7 @@ try {
 
     #    the error action preference.
 
-    $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -ResourceName $databaseName
+    $keys = Invoke-AzureRmResourceAction -force -errorAction silently continue -Action listKeys -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2015-04-08' -ResourceGroupName $resourcegroupName -ResourceName $databaseName
  
     #([scriptblock]::Create($scriptCommand)) | 
     #    ForEach-Object {
